@@ -29,10 +29,10 @@ class CallableAggregateTest extends TestCase
         parent::setUp();
         $this->aggregate = new CallableAggregate();
         $this->callbacks[] = static function () {
-
+            //
         };
         $this->callbacks[] = static function () {
-
+            //
         };
     }
 
