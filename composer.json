@@ -3,6 +3,7 @@
     "type": "library",
     "description": "Aggregating the same callable types to one invoking object.",
     "keywords": [
+        "callback",
         "callable",
         "aggregate"
     ],
