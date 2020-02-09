@@ -1,7 +1,7 @@
 {
     "name": "anper/callable-aggregate",
     "type": "library",
-    "description": "",
+    "description": "Aggregating the same callable types to one invoking object.",
     "keywords": [
         "callable",
         "aggregate"
