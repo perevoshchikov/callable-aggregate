@@ -4,11 +4,11 @@ namespace Anper\CallableAggregate;
 
 /**
  * @param object|string|int $key
+ * @param bool|null $created
  *
  * @return CallableAggregateInterface
- * @throws \InvalidArgumentException
  */
-function aggregate($key): CallableAggregateInterface
+function aggregate($key, bool &$created = null): CallableAggregateInterface
 {
     static $collection = [];
 
@@ -18,9 +18,13 @@ function aggregate($key): CallableAggregateInterface
         throw new \InvalidArgumentException('Key must be object or scalar, given ' . \gettype($key));
     }
 
+    $created = false;
+
     if (isset($collection[$key])) {
         return $collection[$key];
     }
+
+    $created = true;
 
     return $collection[$key] = new CallableAggregate();
 }
