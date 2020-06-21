@@ -4,7 +4,7 @@ namespace Anper\CallableAggregate\Tests;
 
 use PHPUnit\Framework\TestCase;
 
-use function Anper\CallableAggregate\aggregate;
+use function Anper\CallableAggregate\aggregator;
 use function Anper\CallableAggregate\clear_callbacks;
 use function Anper\CallableAggregate\get_callbacks;
 use function Anper\CallableAggregate\register_callback;
@@ -80,8 +80,8 @@ class FunctionTest extends TestCase
      */
     public function testAggregate($key): void
     {
-        $collection1 = aggregate($key);
-        $collection2 = aggregate($key);
+        $collection1 = aggregator($key);
+        $collection2 = aggregator($key);
 
         $this->assertSame($collection1, $collection2);
     }
@@ -94,7 +94,7 @@ class FunctionTest extends TestCase
     {
         $this->expectException(\InvalidArgumentException::class);
 
-        aggregate($key);
+        aggregator($key);
     }
 
     /**

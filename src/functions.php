@@ -8,7 +8,7 @@ namespace Anper\CallableAggregate;
  *
  * @return CallableAggregateInterface
  */
-function aggregate($key, bool &$created = null): CallableAggregateInterface
+function aggregator($key, bool &$created = null): CallableAggregateInterface
 {
     static $collection = [];
 
@@ -38,7 +38,7 @@ function aggregate($key, bool &$created = null): CallableAggregateInterface
  */
 function register_callback($key, callable $callback, bool $prepend = false): bool
 {
-    $collection = aggregate($key);
+    $collection = aggregator($key);
 
     $prepend
         ? $collection->prepend($callback)
@@ -55,7 +55,7 @@ function register_callback($key, callable $callback, bool $prepend = false): boo
  */
 function unregister_callback($key, callable $callback): bool
 {
-    $collection = aggregate($key);
+    $collection = aggregator($key);
 
     if ($has = $collection->has($callback)) {
         $collection->remove($callback);
@@ -71,7 +71,7 @@ function unregister_callback($key, callable $callback): bool
  */
 function get_callbacks($key): array
 {
-    return aggregate($key)->all();
+    return aggregator($key)->all();
 }
 
 /**
@@ -81,7 +81,7 @@ function get_callbacks($key): array
  */
 function clear_callbacks($key): int
 {
-    $collection = aggregate($key);
+    $collection = aggregator($key);
 
     if ($count = $collection->count()) {
         $collection->clear();
