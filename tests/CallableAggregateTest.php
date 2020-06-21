@@ -24,7 +24,7 @@ class CallableAggregateTest extends TestCase
     /**
      * @inheritDoc
      */
-    protected function setUp()
+    protected function setUp(): void
     {
         parent::setUp();
         $this->aggregate = new CallableAggregate();
@@ -39,7 +39,7 @@ class CallableAggregateTest extends TestCase
     /**
      * @inheritDoc
      */
-    protected function tearDown()
+    protected function tearDown(): void
     {
         $this->aggregate = null;
         $this->callbacks = [];

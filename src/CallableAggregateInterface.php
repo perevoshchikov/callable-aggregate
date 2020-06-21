@@ -5,6 +5,8 @@ namespace Anper\CallableAggregate;
 /**
  * Interface CallableAggregateInterface
  * @package Anper\CallableAggregate
+ *
+ * @extends \IteratorAggregate<int, callable>
  */
 interface CallableAggregateInterface extends \IteratorAggregate, \Countable
 {
@@ -53,5 +55,10 @@ interface CallableAggregateInterface extends \IteratorAggregate, \Countable
      */
     public function all(): array;
 
-    public function __invoke();
+    /**
+     * @return \Traversable|callable[]
+     */
+    public function getIterator();
+
+    public function __invoke(): void;
 }

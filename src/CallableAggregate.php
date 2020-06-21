@@ -119,7 +119,7 @@ class CallableAggregate implements CallableAggregateInterface
     /**
      * @inheritDoc
      */
-    public function __invoke()
+    public function __invoke(): void
     {
         $args = \func_get_args();
 
