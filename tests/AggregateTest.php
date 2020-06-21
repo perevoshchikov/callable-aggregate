@@ -46,7 +46,7 @@ class AggregateTest extends TestCase
         $collection1 = aggregate($key);
         $collection2 = aggregate($key);
 
-        $this->assertSame($collection1, $collection1);
+        $this->assertSame($collection1, $collection2);
     }
 
     /**
